@@ -1,30 +1,46 @@
 import React from 'react'
 import Nest from './components/Nest'
-import Pokemon from './components/Pokemon'
 import pokemonService from './services/pokemons'
+import nestService from './services/nests'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      nests: []
+      nests: [],
+      allLoaded: false
     }
   }
 
   componentDidMount() {
-    this.getPokemonData('muk')
+    nestService.getAll()
+      .then(nests => { this.attachPokemonData(nests) })
+      .catch(err => { console.log(err) })
   }
 
-  getPokemonData = (name) => {
-    pokemonService.getByName(name).then(pokemon =>
-      console.log(pokemon)
-    )
+  attachPokemonData = async (nests) => {
+    for (const nest of nests) {
+      nest['pokemondata'] = await this.getPokemon(nest.pokemon)
+    }
+    this.setState({ nests, allLoaded: true })
+  }
+
+  getPokemon = (name) => {
+    return pokemonService.getByName(name)
+      .then(pokemon => {
+        console.log(pokemon)
+        return pokemon
+      })
+      .catch(err => { console.error(err) })
   }
 
   render() {
     return (
       <div>
-        <h4>Nests</h4>
+        <h3>Nests</h3>
+        {this.state.allLoaded && this.state.nests.map(nest =>
+          <Nest key={nest._id} nest={nest}/>
+        )}
       </div>
     )
   }

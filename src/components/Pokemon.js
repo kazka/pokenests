@@ -1,7 +1,8 @@
 import React from 'react'
+
 const Pokemon = ({pokemon}) => (
   <div>
-    {pokemon.name}
+    <p className="pokemon-name" style={{color: pokemon.color.name}}>{pokemon.name}</p>
   </div>
 )
 

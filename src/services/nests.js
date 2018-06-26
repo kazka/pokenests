@@ -1,9 +1,9 @@
-// import axios from 'axios'
-// const baseUrl = '/api/blogs'
-//
-// const getAll = () => {
-//   const request = axios.get(baseUrl)
-//   return request.then(response => response.data)
-// }
-//
-// export default { getAll}
+import axios from 'axios'
+const url = 'http://localhost:3001'
+
+const getAll = () => {
+  const request = axios.get(url)
+  return request.then(response => response.data)
+}
+
+export default { getAll }

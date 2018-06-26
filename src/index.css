@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.nest-pokemon .pokemon-name {
+  font-weight: bold;
+  text-transform: capitalize;
+}
