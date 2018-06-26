@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const Nest = require('./models/nest')
 
 app.use(bodyParser.json())
+app.use(cors())
 
 
 const formatNest = (nest) => {
