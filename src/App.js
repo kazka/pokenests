@@ -1,6 +1,7 @@
 import React from 'react'
 import Nest from './components/Nest'
 import Loading from './components/Loading'
+import Form from './components/Form'
 import pokemonService from './services/pokemons'
 import nestService from './services/nests'
 
@@ -9,7 +10,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       nests: [],
-      allLoaded: false
+      allLoaded: false,
+      showForm: false
     }
   }
 
@@ -35,16 +37,25 @@ class App extends React.Component {
       .catch(err => { console.error(err) })
   }
 
+  handleToggleForm = () => {
+    this.setState({ showForm: !this.state.showForm })
+  }
+
   render() {
     return (
-      <div className="container">
-        <h3>Nests</h3>
-        {!this.state.allLoaded ?
-          <Loading />
-          : null }
-        {this.state.allLoaded && this.state.nests.map(nest =>
-          <Nest key={nest._id} nest={nest} />
-        )}
+      <div>
+        <div className="container">
+          <h3>Nests</h3>
+
+          {this.state.showForm ? <Form /> : null }
+          {!this.state.allLoaded ?
+            <Loading /> :
+            this.state.nests.map(nest =>
+            <Nest key={nest._id} nest={nest} />
+          ) }
+        </div>
+
+        <div className="add-new" onClick={this.handleToggleForm}>{this.state.showForm ? 'x' : '+'}</div>
       </div>
     )
   }

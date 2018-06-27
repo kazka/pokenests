@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spinner } from "@blueprintjs/core";
+import { Spinner } from '@blueprintjs/core';
 
 const Loading = ({}) => (
   <div className="loading-area">

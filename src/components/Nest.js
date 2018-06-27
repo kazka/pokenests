@@ -1,6 +1,6 @@
 import React from 'react'
 import Pokemon from './../components/Pokemon'
-import { Card } from "@blueprintjs/core";
+import { Card } from '@blueprintjs/core';
 
 const Nest = ({ nest }) => {
   return (

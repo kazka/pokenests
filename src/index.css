@@ -38,6 +38,43 @@ body {
   text-transform: capitalize;
 }
 
+.form-area {
+
+}
+
+.pt-button {
+  margin-top: 20px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.add-new {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+  background-color: coral;
+  color: white;
+  font-size: 40px;
+  line-height: 55px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-area {
+  background-color: white;
+  padding: 30px;
+  position: fixed;
+  bottom: 0px;
+  right: 100px;
+  width: 400px;
+  max-width: 80vw;
+}
+
 
 @-webkit-keyframes flash {
   0% {opacity: 0;}
