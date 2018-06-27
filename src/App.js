@@ -1,5 +1,6 @@
 import React from 'react'
 import Nest from './components/Nest'
+import Loading from './components/Loading'
 import pokemonService from './services/pokemons'
 import nestService from './services/nests'
 
@@ -36,10 +37,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h3>Nests</h3>
+        {!this.state.allLoaded ?
+          <Loading />
+          : null }
         {this.state.allLoaded && this.state.nests.map(nest =>
-          <Nest key={nest._id} nest={nest}/>
+          <Nest key={nest._id} nest={nest} />
         )}
       </div>
     )
