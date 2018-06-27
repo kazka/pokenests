@@ -19,31 +19,6 @@ const formatNest = (nest) => {
 }
 
 
-app.get('/ditto', (request, response) => {
-  Nest
-    .find({})
-    .then(res => {
-      const ditto = {
-        name: 'ditto',
-        color: {name: 'purple'},
-        id: 1
-      }
-      response.json(ditto)
-    })
-})
-app.get('/goldeen', (request, response) => {
-  Nest
-    .find({})
-    .then(res => {
-      const goldeen = {
-        name: 'goldeen',
-        color: {name: 'red'},
-        id: 2
-      }
-      response.json(goldeen)
-    })
-})
-
 app.get('/', (request, response) => {
   Nest
     .find({})
