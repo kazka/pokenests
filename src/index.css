@@ -33,9 +33,15 @@ body {
   margin: 20px 0;
 }
 
-.nest-pokemon .pokemon-name {
+.pokemon {
+  border-left: 10px solid;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.pokemon-name {
   font-weight: bold;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .form-area {
